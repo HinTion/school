@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "org.example.school.mapper.CampusMapper">
+
+    <resultMap id="BaseResultMap" type="org.example.school.entity.Campus">
+            <id property="campusId" column="campus_id" jdbcType="BIGINT"/>
+            <result property="campusName" column="campus_name" jdbcType="VARCHAR"/>
+            <result property="campusAddress" column="campus_address" jdbcType="VARCHAR"/>
+            <result property="createdTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updatedTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="deleted" column="is_deleted" jdbcType="TINYINT"/>
+    </resultMap>
+
+</mapper>
