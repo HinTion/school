@@ -25,4 +25,11 @@ public class CityController {
         return cityService.findByCityName(cityName);
     }
 
+    @RequestMapping("/findDetailCity/{cityName}")
+    public Result<City> findDetailCity(@PathVariable String cityName) {
+        return cityService.findDetailCity(cityName);
+    }
+
+
+
 }

@@ -25,4 +25,9 @@ public class CityServiceImpl implements CityService {
         return Result.success(cityMapper.findByCityName(name));
     }
 
+    @Override
+    public Result<City> findDetailCity(String cityName) {
+        return Result.success(cityMapper.findDetailCity(cityName));
+    }
+
 }

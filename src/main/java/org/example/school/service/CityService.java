@@ -15,4 +15,6 @@ public interface CityService {
     Result<City> findByCityId(Long id);
 
     Result<City> findByCityName(String name);
+
+    Result<City> findDetailCity(String cityName);
 }
