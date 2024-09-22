@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "org.example.school.mapper.StreetMapper" >
+    <select id="findDetailStreet" resultType="org.example.school.entity.Street">
+        select * from street
+            join district on street_district = district_id
+            join city on district_city = city_id
+            join province on city_province = province_id
+        where street_name like CONCAT('%', #{name}, '%')
+    </select>
+</mapper>
