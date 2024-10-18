@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.mySchool.mapper.CampusMapper">
+
+    <select id="findById" resultType="com.mySchool.entity.Campus">
+        select *
+        from campus
+        where campus_id = #{campusId};
+    </select>
+
+    <select id="findByCampusName" resultType="com.mySchool.entity.Campus">
+        select * from campus where campus_name like concat('%', #{campusName} ,'%')
+    </select>
+
+    <select id="findDetailCampus" resultType="com.mySchool.entity.Campus">
+        select province_name, city_name, district_name, street_name, village_name, un_name, campus_id, campus_name  from campus
+        join university on campus_university = un_id
+        join village on village_id = un_village
+        join street on village_street = street_id
+        join district on street_district = district_id
+        join city on district_city = city_id
+        join province on city_province = province_id
+        where campus_name like concat('%', #{campusName} ,'%')
+    </select>
+</mapper>
