@@ -6,7 +6,7 @@
         <option name="generateConfig">
           <GenerateConfig>
             <option name="annotationType" value="MYBATIS_PLUS3" />
-            <option name="basePackage" value="" />
+            <option name="basePackage" value="entity" />
             <option name="basePath" value="src/main/java/org.example.school" />
             <option name="classNameStrategy" value="camel" />
             <option name="encoding" value="UTF-8" />
@@ -67,8 +67,8 @@
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="Campus" />
-                  <option name="tableName" value="campus" />
+                  <option name="className" value="Village" />
+                  <option name="tableName" value="village" />
                 </TableUIInfo>
               </list>
             </option>

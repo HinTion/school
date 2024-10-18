@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mySchool.mapper.UniversityMapper">
+    <select id="findById" resultType="com.mySchool.entity.University">
+        select * from university where un_id = #{id}
+    </select>
+
+    <select id="findByUnName" resultType="com.mySchool.entity.University">
+        select * from university where un_name like CONCAT('%', #{name}, '%')
+    </select>
+
+    <select id="findDetailUniversity" resultType="com.mySchool.entity.University">
+        select * from university
+                          join village on village_id = un_village
+                          join street on village_street = street_id
+                          join district on street_district = district_id
+                          join city on district_city = city_id
+                          join province on city_province = province_id
+        where un_name like CONCAT('%', #{name}, '%')
+    </select>
+
+    <insert id="addUniversity" useGeneratedKeys="true" keyProperty="unId">
+        insert into university (un_name, un_village)
+        values (#{unName}, #{unVillage});
+    </insert>
+
+    <delete id="deleteUniversityById">
+        delete from university where un_id = #{id}
+    </delete>
+</mapper>

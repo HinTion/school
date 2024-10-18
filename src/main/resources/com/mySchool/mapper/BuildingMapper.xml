@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mySchool.mapper.BuildingMapper">
+
+    <select id="findAll" resultType="com.mySchool.entity.Building">
+        select * from building
+    </select>
+
+    <select id="findById" resultType="com.mySchool.entity.Building">
+        select * from building where building_id = #{id}
+    </select>
+
+    <select id="findByName" resultType="com.mySchool.entity.Building">
+        select * from building where building_name like CONCAT('%', #{name}, '%')
+    </select>
+
+    <select id="findDetailBuilding" resultType="com.mySchool.entity.Building">
+        select *
+            from building
+                  join campus on building_campus = campus_id
+                  join university on campus_university = un_id
+                  join village on village_id = un_village
+                  join street on village_street = street_id
+                  join district on street_district = district_id
+                  join city on district_city = city_id
+                  join province on city_province = province_id
+    </select>
+</mapper>
